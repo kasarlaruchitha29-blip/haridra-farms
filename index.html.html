@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haridra Farms | Fresh Milky Mushrooms</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7ef;color:#24321f}
+.hero{padding:42px 20px;text-align:center;background:linear-gradient(135deg,#dfead0,#fffdf4)}
+.logo{font-size:38px;font-weight:800;color:#456b2e}.tag{font-size:18px;margin:8px 0 25px}
+.card{max-width:520px;margin:24px auto;padding:24px;background:white;border-radius:20px;box-shadow:0 8px 28px #00000014}
+.mushroom{font-size:75px}.price{font-size:25px;font-weight:700;margin:12px}
+label{display:block;text-align:left;font-weight:600;margin-top:14px}
+input,select,textarea{width:100%;padding:13px;margin-top:6px;border:1px solid #ccd5c5;border-radius:10px;font-size:16px}
+button{width:100%;padding:15px;margin-top:20px;border:0;border-radius:12px;background:#456b2e;color:white;font-size:18px;font-weight:700;cursor:pointer}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.feature{background:#f0f5e9;padding:14px 6px;border-radius:12px;font-size:13px}
+.small{text-align:center;font-size:13px;color:#687263;margin-top:18px}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="logo">HARIDRA FARMS</div>
+  <div class="tag">🌱 Farm Fresh • Fresh to Your Home 🍄</div>
+</section>
+
+<div class="card">
+  <div class="mushroom">🍄</div>
+  <h1>Fresh Milky Mushrooms</h1>
+  <p>Freshly harvested milky mushrooms from Haridra Farms.</p>
+  <div class="price">Order Fresh • Direct From Farm</div>
+
+  <div class="features">
+    <div class="feature">🌱 Farm Fresh</div>
+    <div class="feature">🍄 Fresh Harvest</div>
+    <div class="feature">🏠 Home Delivery</div>
+  </div>
+
+  <form id="orderForm">
+    <label>Your Name</label>
+    <input id="name" required placeholder="Enter your name">
+
+    <label>Mobile Number</label>
+    <input id="phone" required type="tel" placeholder="Enter mobile number">
+
+    <label>Quantity</label>
+    <select id="qty">
+      <option>250 g</option>
+      <option>500 g</option>
+      <option>1 kg</option>
+      <option>2 kg</option>
+      <option>5 kg</option>
+    </select>
+
+    <label>Delivery Address</label>
+    <textarea id="address" rows="3" required placeholder="Enter delivery address"></textarea>
+
+    <button type="submit">🍄 Place Order on WhatsApp</button>
+  </form>
+
+  <div class="small">Haridra Farms • Contact: 9542387282</div>
+</div>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const name=document.getElementById("name").value;
+  const phone=document.getElementById("phone").value;
+  const qty=document.getElementById("qty").value;
+  const address=document.getElementById("address").value;
+  const msg=`Hello Haridra Farms!%0A%0AI would like to order:%0A🍄 Milky Mushrooms%0AQuantity: ${encodeURIComponent(qty)}%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}`;
+  window.open("https://wa.me/919542387282?text="+msg,"_blank");
+});
+</script>
+</body>
+</html>
